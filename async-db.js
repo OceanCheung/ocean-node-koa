@@ -7,7 +7,7 @@ const pool = mysql.createPool({
     database: databaseConfig.database
 })
 
-let query = (sql, values) => {
+const query = (sql, values) => {
     return new Promise((resolve, reject) => {
         pool.getConnection((err, connection) => {
             if (err) {
