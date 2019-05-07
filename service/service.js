@@ -1,7 +1,7 @@
-const {query,pool,transaction} = require('./async-db');
-const {parseData} = require('./utils');
+const {query,pool,transaction} = require('../async-db');
+const {parseData} = require('../utils/utils');
 const uuidv1 = require('uuid/v1');
-const {_insertMyTable,_insertMyTest,_deleteDataById,_listData,_updateDataById} = require('./sql');
+const {_insertMyTable,_insertMyTest,_deleteDataById,_listData,_updateDataById} = require('../sql');
 
 const listData = async () => {
     let dataList = await query(_listData());
