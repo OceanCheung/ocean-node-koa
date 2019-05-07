@@ -2,7 +2,7 @@ const Koa = require('koa');
 const session = require('koa-session');
 const Router = require('koa-router');
 
-const {sessionConfig,baseConfig} = require('./config');
+const {sessionConfig,baseConfig} = require('./config/config');
 
 const app = new Koa();
 
@@ -10,7 +10,7 @@ const app = new Koa();
 app.keys = ['secret'];
 app.use(session(sessionConfig, app));
 
-const testRouter = require('./router.js');
+const testRouter = require('./router/router');
 
 // 装载所有子路由
 const router = new Router()

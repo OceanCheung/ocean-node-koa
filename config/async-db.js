@@ -1,8 +1,7 @@
 const mysql = require('promise-mysql');
 const Promise = require("bluebird");
-const {databaseConfig} = require('./config');
-const ReturnObj = require('./return-obj');
-const {codeConfig} = require('./config');
+const {databaseConfig,codeConfig} = require('../config/config');
+const ReturnObj = require('../model/return-obj');
 
 /**线程池 */
 const pool = mysql.createPool({

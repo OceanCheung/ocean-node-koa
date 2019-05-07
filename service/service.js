@@ -1,7 +1,7 @@
-const {query,pool,transaction} = require('../async-db');
-const {parseData} = require('../utils/utils');
+const {query,pool,transaction} = require('../config/async-db');
+const {parseData} = require('../util/utils');
 const uuidv1 = require('uuid/v1');
-const {_insertMyTable,_insertMyTest,_deleteDataById,_listData,_updateDataById} = require('../sql');
+const {_insertMyTable,_insertMyTest,_deleteDataById,_listData,_updateDataById} = require('../sql/sql');
 
 const listData = async () => {
     let dataList = await query(_listData());
@@ -10,7 +10,7 @@ const listData = async () => {
 
 const addData = async params => {
     const uuid = uuidv1();
-    const sqls = [_insertMyTable(params), _insertMyTest(params)];
+    const sqls = [_insertMyTable(params,uuid), _insertMyTest(params,uuid)];
     const data =  await transaction(sqls);
     return data;
 }

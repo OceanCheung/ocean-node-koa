@@ -1,7 +1,7 @@
 const Router = require('koa-router')
-const {listData,addData,deleteDataById,updateDataById} = require('./service');
-const ReturnObj = require('./return-obj');
-const {codeConfig} = require('./config');
+const {listData,addData,deleteDataById,updateDataById} = require('../service/service');
+const ReturnObj = require('../model/return-obj');
+const {codeConfig} = require('../config/config');
 
 const testRouter = new Router();
 
