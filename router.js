@@ -15,32 +15,36 @@ testRouter.get('/addData', async (ctx) => {
     const request = ctx.request;
     const query = request.query;
     const data = await addData(query);
-    ctx.body = data;
-})
+    if(data){
+        ctx.body = new ReturnObj(codeConfig.success, "新增成功");
+    }else{
+        ctx.body = new ReturnObj(codeConfig.success, "新增失败");
+    }
+});
 
 testRouter.get('/deleteDataById', async (ctx) => {
     const request = ctx.request;
     const query = request.query;
     const data = await deleteDataById(query);
     ctx.body = data;
-})
+});
 
 testRouter.get('/updateDataById', async (ctx) => {
     const request = ctx.request;
     const query = request.query;
     const data = await updateDataById(query);
     ctx.body = data;
-})
+});
 
 testRouter.get('/login', async (ctx) => {
     ctx.session.userName = 'zhangsan';
     ctx.body = {};
-})
+});
 
 testRouter.get('/loginOut', async (ctx) => {
     console.log(ctx.session.userName)
     ctx.body = ctx.session.userName;
-})
+});
 
 
 module.exports = testRouter;
