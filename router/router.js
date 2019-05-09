@@ -46,4 +46,19 @@ testRouter.get('/loginOut', async (ctx) => {
 });
 
 
+/**水印照片 */
+const {waterMask} = require('../util/water-mask');
+testRouter.get('/image',async(ctx)=>{
+       waterMask();
+       ctx.body = {"code":1};
+})
+
+testRouter.get('/testError',async(ctx)=>{
+   const obj = Object.assign({},{a:1,b:2},{c:3});
+   const obj2 = {...{a:1,b:2},...{c:3}}
+   console.log(obj);
+   console.log(obj2);
+})
+
+
 module.exports = testRouter;

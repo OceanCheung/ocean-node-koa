@@ -26,9 +26,10 @@ const updateDataById = async params => {
 }
 
 
+
 module.exports = {
     listData,
     addData,
     deleteDataById,
-    updateDataById
+    updateDataById,
 }
